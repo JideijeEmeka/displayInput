@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/services.dart';
 
 class DisplayUser extends StatefulWidget {
   @override
@@ -78,7 +80,7 @@ class _DisplayUserState extends State<DisplayUser> {
               ),
               //TEXT
               Text(
-                "Name: " +_userName,
+                "Name: " + _userName,
                 style: TextStyle(
                   color: Colors.black87,
                   fontSize: 20,
@@ -87,7 +89,7 @@ class _DisplayUserState extends State<DisplayUser> {
               ),
               SizedBox(height: 10),
               Text(
-                "Description: " +_userDescription,
+                "Description: " + _userDescription,
                 style: TextStyle(
                   color: Colors.black87,
                   fontSize: 20,
@@ -107,7 +109,10 @@ class _DisplayUserState extends State<DisplayUser> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Icon(Icons.arrow_downward),
+                  Icon(
+                    Icons.arrow_downward,
+                    color: Colors.red,
+                  ),
                 ],
               ),
               SizedBox(height: 30),
@@ -154,10 +159,16 @@ class _DisplayUserState extends State<DisplayUser> {
                     ),
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 5,
                   ),
                   Icon(Icons.arrow_forward),
-                  Text("link"),
+                  GestureDetector(
+                    onTap: () async {
+                      await launch("https://internship.zuri.team/");
+                    },
+                    child: Text("Zuri Team Internship Web",
+                        style: TextStyle(color: Colors.red, fontSize: 18)),
+                  ),
                 ],
               )
             ],
