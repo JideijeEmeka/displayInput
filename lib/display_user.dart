@@ -35,9 +35,6 @@ class _DisplayUserState extends State<DisplayUser> {
         child: AppBar(
           centerTitle: true,
           flexibleSpace: ClipRRect(
-            borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(50),
-                bottomLeft: Radius.circular(50)),
             child: Container(
               margin: EdgeInsets.symmetric(vertical: 30),
               padding: EdgeInsets.all(60),
